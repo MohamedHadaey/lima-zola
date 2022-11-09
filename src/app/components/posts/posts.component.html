@@ -1,0 +1,120 @@
+<!-- loader.json file -->
+<div class="loader">
+  <lottie-player src="../../../assets/animations/loader.json" background="transparent" speed="1" loop autoplay>
+  </lottie-player>
+</div>
+<!-- loader.json file -->
+<div id="more-components" class="pb-5">
+  <div class="head-svg">
+  </div>
+  <div class="circle1">
+  </div>
+  <div class="circle2">
+  </div>
+  <div class="container m-auto">
+    <div class="row mb-5">
+      <div class="col-12">
+        <div class="row heading">
+          <div class="col-10">
+            <div class="advice-msgs">
+              <ul class="list-unstyled mb-0 ">
+                <li class="text-center d-inline-block px-1">
+                  <img src="../../../assets/images/characters/lima.jpg" alt="baby" (click)="getPostsData()">
+                  <p>{{"all" | translate}}</p>
+                </li>
+                <li class="text-center d-inline-block px-1" *ngFor="let sub of subCategories">
+                  <img [src]="sub.image" alt="teacher" (click)="getTeacherPosts(sub.id)">
+                  <p>{{sub.name}}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-2 d-flex justify-content-center align-items-center">
+            <button (click)=" goBack()" class="btn btn-transparent border border-0 p-0"><i
+                class="fa-sharp fa-solid fa-arrow-left text-black fw-bold fa-2x"
+                [style.transform]="checkDir?'rotatey(360deg)':'rotatey(180deg)'"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- if comming from article -->
+    <!-- ******************************************** -->
+    <div class="row" *ngIf="categoryType=='article'">
+      <div class="col-sm-6 col-md-4 col-lg-3 p-3 overflow-hidden" *ngFor="let post of posts"
+        (click)="showPost(post.id, post.free, post.vide)">
+        <div class="item">
+          <div class="item-image">
+            <img [src]="post.image" alt="article post">
+            <div class="lock" *ngIf="post.free==0" [style.right]="checkDir?'80%':'5%'">
+            </div>
+          </div>
+          <div class="item-caption py-3">
+            <div [innerHTML]="post.name" class="fw-bold">
+            </div>
+          </div>
+          <div class="line">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ******************************************** -->
+    <!-- if comming from video -->
+    <!-- ******************************************** -->
+    <div class="row" *ngIf="categoryType=='video'">
+      <div class="col-sm-6 col-md-4 col-lg-3 p-3 overflow-hidden" *ngFor="let post of posts">
+        <div class="item">
+          <div class="poster">
+            <img [src]="post.image" alt="video post">
+            <div class="play-icon ">
+              <div class="lottie-icon w-100 h-100">
+                <lottie-player class="w-100 h-100"
+                  src="https://assets10.lottiefiles.com/temp_editor_files/lf30_editor_wmhclgej.json"
+                  background="transparent" speed="1" loop autoplay (click)="showPost(post.id,post.free,post.video)">
+                </lottie-player>
+              </div>
+            </div>
+            <div class="lock" (click)="openLock()" [style.right]="checkDir?'80%':'5%'" *ngIf="post.free==0">
+            </div>
+            <div class="unloved" [style.left]="checkDir?'80%':'5%'" *ngIf="post.free==1 && !post.fav"
+              (click)="makeLove(post.id,post.free)">
+            </div>
+            <div class="loved" [style.left]="checkDir?'80%':'5%'" *ngIf="post.free==1 && post.fav"
+              (click)="makeLove(post.id,post.free)">
+            </div>
+          </div>
+          <div class="caption">
+            <div [innerHTML]="post.name" class="mt-2 text-dark fw-bold"></div>
+            <ul [style.direction]="checkDir?'ltr':'rtl'" class="d-flex list-unstyled ">
+              <li class="mx-2" (click)="makeLike(post.id,post.free)">
+                <span *ngIf="!post.is_liked">
+                  <i class="fa-regular fa-thumbs-up"
+                    [style.transform]="checkDir?'rotatey(180deg)':'rotatey(360deg)'"></i>
+                </span>
+                <span *ngIf="post.is_liked">
+                  <i class="fa-solid fa-thumbs-up "
+                    [style.transform]="checkDir?'rotatey(180deg)':'rotatey(360deg)'"></i>
+                </span> {{post.likes}}
+              </li>
+              <li class="mx-2"><span><i class="fa-solid fa-eye"></i></span> {{post.views}} </li>
+            </ul>
+          </div>
+          <div class="line mt-2">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ******************************************** -->
+  </div>
+</div>
+<app-navbar></app-navbar>
+<!-- Modals -->
+<div class="modals ">
+  <div class="sub-layer py-5 px-2">
+    <div class="sub-modal  d-flex justify-content-center align-items-center flex-column p-5">
+      <img src="../../../assets/images/characters/limaaa.png" alt="lima">
+      <p>{{"sub_msg" | translate}}</p>
+      <button class="submit-btn text-dark " (click)="subNow()">{{"sub_btn_msg" | translate}}</button>
+    </div>
+  </div>
+  <button type="button" id="closeBtn" class="btn-close p-3  bg-warning fw-bold" (click)="closeModal()"></button>
+</div>

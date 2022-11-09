@@ -1,0 +1,75 @@
+<div class="loader">
+  <lottie-player src="../../../assets/animations/loader.json" background="transparent" speed="1" loop autoplay>
+  </lottie-player>
+</div>
+<div id="more-components">
+  <div class="head-svg">
+  </div>
+  <div class="circle1">
+  </div>
+  <div class="circle2">
+  </div>
+  <div class="container m-auto">
+    <div class="row py-3">
+      <div class="col-12">
+        <div class="row" dir="rtl">
+          <div class="col-10">
+          </div>
+          <div class="col-2 d-flex justify-content-center align-items-center">
+            <button routerLink=".." class="btn btn-transparent border border-0 p-0"><i
+                class="fa-sharp fa-solid fa-arrow-left text-black fw-bold fa-2x"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="my-3">{{"favorite" | translate}}</h2>
+      </div>
+    </div>
+    <div class="row " *ngIf="posts == 0">
+      <div class="col-12  text-center">
+        <div class="content-svg mb-5">
+        </div>
+        <h3>{{"emptyText" | translate}}</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-md-4 col-lg-3 p-3 overflow-hidden" *ngFor="let post of posts">
+        <div class="item">
+          <div class="poster">
+            <img [src]="post.image" alt="favorite post">
+            <div class="play-icon ">
+              <div class="lottie-icon w-100 h-100">
+                <lottie-player class="w-100 h-100"
+                  src="https://assets10.lottiefiles.com/temp_editor_files/lf30_editor_wmhclgej.json"
+                  background="transparent" speed="1" loop autoplay></lottie-player>
+              </div>
+            </div>
+            <div class="loved" [style.left]="checkDir?'80%':'5%'" *ngIf="post.free==1 && post.fav"
+              (click)="makeLove(post.id)">
+            </div>
+          </div>
+          <div class="caption">
+            <div [innerHTML]="post.name" class="mt-2 text-dark fw-bold"></div>
+            <ul [style.direction]="checkDir?'ltr':'rtl'" class="d-flex list-unstyled ">
+              <li class="mx-2" (click)="makeLike(post.id)">
+                <span *ngIf="!post.is_liked">
+                  <i class="fa-regular fa-thumbs-up"
+                    [style.transform]="checkDir?'rotatey(180deg)':'rotatey(360deg)'"></i>
+                </span>
+                <span *ngIf="post.is_liked">
+                  <i class="fa-solid fa-thumbs-up "
+                    [style.transform]="checkDir?'rotatey(180deg)':'rotatey(360deg)'"></i>
+                </span> {{post.likes}}
+              </li>
+              <li class="mx-2"><span><i class="fa-solid fa-eye"></i></span> {{post.views}} </li>
+            </ul>
+          </div>
+          <div class="line mt-2">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+@import "../../../../styles.scss";
+
+// styles if array of favourites is empty
+.content-svg {
+  max-width: 300px;
+  height: 300px;
+  margin: auto;
+  background-image: url("../../../../assets/images/shapes/undraw.svg");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}

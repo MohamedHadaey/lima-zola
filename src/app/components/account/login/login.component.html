@@ -1,0 +1,66 @@
+<div class="loader">
+  <lottie-player src="../../../assets/animations/loader.json"  background="transparent" speed="1" loop  autoplay></lottie-player>
+</div>
+<div id="more-components">
+  <div class="cloud7">
+  </div>
+  <div class="cloud8">
+  </div>
+  <div class="cloud9">
+  </div>
+  <div class="cloud10">
+  </div>
+  <div class="charachter">
+    <img src="../../../assets/images/characters/zolaandlimacharacterfinal12x.png" class="img-fluid" alt="lima charachter">
+  </div>
+  <div class="container m-auto">
+    <div class="row pt-3">
+      <div class="col-12">
+        <div class="row" dir="rtl">
+          <div class="col-10">
+          </div>
+          <div class="col-2 d-flex justify-content-center align-items-center">
+            <button routerLink=".." class="btn btn-transparent border border-0 p-0"><i
+              class="fa-sharp fa-solid fa-arrow-left text-black fw-bold fa-2x" ></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row pt-2 pb-5">
+      <div class="col-12 m-auto mt-3 mb-5  text-center">
+        <div class="header-image">
+        </div>
+        <h2 class="my-3 text-black" id="ssaa">{{"loginwithaccount" | translate}}</h2>
+        <div class="form">
+          <form [formGroup]="loginForm" (ngSubmit)="submitLoginForm(loginForm)">
+            <div class="form-group">
+              <span><i class="fa-solid fa-mobile-screen-button"></i></span>
+              <input type="number" placeholder="{{'phone' | translate}}" formControlName="phone">
+            </div>
+            <p class="text-danger " *ngIf="loginForm.get('phone')?.invalid && loginForm.get('phone')?.touched">
+              {{'phone-validate-msg' | translate}}</p>
+            <div class="form-group">
+              <span><i class="fa-solid fa-lock"></i></span>
+              <input [type]="changeType?'password':'text'" placeholder="{{'password' | translate}}" id="userPass"
+                formControlName="password" autocomplete="">
+              <!-- to show or hide password -->
+              <span (click)="viewPassword()" id="view-pass"><i
+                  [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'"></i></span>
+            </div>
+            <p class="text-danger" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+              {{'password-validate-msg' | translate}}</p>
+            <p class="text-danger" *ngIf="loginForm.get('password')?.errors?.['minlength']">{{'password-validate-msg2' |
+              translate}}</p>
+              <div class="form-group d-block bg-transparent" [style.text-align]="checkDir?'left':'right'">
+                <p routerLink="/account/forgetpass">{{"login-remember-msg" | translate}}</p>
+              </div>
+            <button [disabled]="loginForm.invalid" class="btn my-2" type="submit">{{"login" | translate}}</button>
+            <div class="form-group bg-transparent text-center">
+              <p routerLink="/account/register" class="d-block m-auto fw-bold">{{"register" | translate}}</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="loader">
+  <lottie-player src="../../../assets/animations/loader.json" background="transparent" speed="1" loop autoplay>
+  </lottie-player>
+</div>
+<div id="more-components">
+  <div class="head-svg">
+  </div>
+  <div class="group1">
+  </div>
+  <div class="group2">
+  </div>
+  <div class="group3">
+  </div>
+  <div class="group4">
+  </div>
+  <div class="limaa">
+  </div>
+  <div class="container m-auto mb-5 pb-5">
+    <div class="row pt-3">
+      <div class="col-12">
+        <div class="row" dir="rtl">
+          <div class="col-10">
+          </div>
+          <div class="col-2 d-flex justify-content-center align-items-center">
+            <button routerLink=".." class="btn btn-transparent border border-0 p-0"><i
+                class="fa-sharp fa-solid fa-arrow-left text-black fw-bold fa-2x"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row py-3 mb-5 pb-5">
+      <div class="col-12 m-auto my-3 text-center">
+        <h3 class="my-5 fw-bold text-black">{{"forget-pass-header" | translate}}</h3>
+        <p class="fw-light mb-5">{{"forget-pass-msg" | translate}}</p>
+        <div class="form">
+          <form [formGroup]="forgetPassForm" (ngSubmit)="submitforgetPassForm(forgetPassForm)">
+            <div class="form-group">
+              <span><i class="fa-solid fa-mobile-screen-button"></i></span>
+              <input type="number" placeholder="{{'phone' | translate}}" formControlName="phone">
+            </div>
+            <p class="text-danger" *ngIf="forgetPassForm.get('phone')?.invalid && forgetPassForm.get('phone')?.touched">
+              {{'phone-validate-msg' | translate}}</p>
+            <button [disabled]="forgetPassForm.invalid" class="btn my-3" type="submit">{{"send-code-btn" |
+              translate}}</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

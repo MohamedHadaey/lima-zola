@@ -1,0 +1,141 @@
+@import "../../../styles.scss";
+
+
+.modal {
+  .modal-dialog {
+    .modal-content {
+      .modal-body {
+        img {
+          width: 200px;
+        }
+      }
+
+      .modal-footer {
+        border: none;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        button {
+          border-radius: 30px;
+          font-weight: bold;
+          transition: all 0.3s;
+        }
+
+        button:first-of-type {
+          padding: 5px 20px;
+          border: 1px solid #555;
+        }
+
+        button:last-of-type {
+          background-color: #8BDED6;
+          color: #fff;
+          padding: 5px 50px;
+        }
+
+        button:last-of-type:hover {
+          border: 1px solid #8BDED6;
+        }
+
+        button:hover {
+          cursor: pointer;
+          box-shadow: 0px 1px 3px #555;
+        }
+      }
+    }
+  }
+}
+
+.more-list{
+  position: relative;
+  z-index: 1;
+}
+
+.group1,
+.group2,
+.group3,
+.group4{
+  opacity: 0.6;
+}
+
+.circle1 {
+  position: fixed;
+  z-index: 0;
+  width: 500px;
+  height: 400px;
+  border-radius: 50%;
+  border: 30px solid rgb(250,246,228);
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -30%);
+}
+
+@media screen and (max-width:576px) {
+  .account-more-img {
+    img {
+      width: 100px !important;
+      height: 100px !important;
+    }
+  }
+
+  .group1,
+  .group2,
+  .group3,
+  .group4 {
+    width: 50px;
+    height: 25px;
+  }
+
+  .circle1 {
+    width: 300px;
+    height: 250px;
+    transform: translate(-50%, -30%);
+  }
+
+}
+
+@media screen and (min-width:577px) and (max-width:768px) {
+  .account-more-img {
+    img {
+      width: 120px !important;
+      height: 120px !important;
+    }
+  }
+
+  .group1,
+  .group2,
+  .group3,
+  .group4 {
+    width: 60px;
+    height: 30px;
+  }
+
+  .circle1 {
+    width: 350px;
+    height: 250px;
+  }
+
+}
+
+@media screen and (min-width:769px) and (max-width:992px) {
+  .account-more-img {
+    img {
+      width: 140px !important;
+      height: 140px !important;
+    }
+  }
+
+  .group1,
+  .group2,
+  .group3,
+  .group4 {
+    width: 70px;
+    height: 35px;
+  }
+
+  .circle1 {
+    width: 400px;
+    height: 300px;
+  }
+
+}

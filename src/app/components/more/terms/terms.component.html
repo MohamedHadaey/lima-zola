@@ -1,0 +1,36 @@
+<div class="loader">
+  <lottie-player src="../../../assets/animations/loader.json" background="transparent" speed="1" loop autoplay>
+  </lottie-player>
+</div>
+<div id="more-components">
+  <div class="head-svg">
+  </div>
+  <div class="circle1">
+  </div>
+  <div class="circle2">
+  </div>
+  <div class="container m-auto">
+    <div class="row py-3">
+      <div class="col-12">
+        <div class="row" dir="rtl">
+          <div class="col-10">
+          </div>
+          <div class="col-2 d-flex justify-content-center align-items-center">
+            <button routerLink=".." class="btn btn-transparent border border-0 p-0"><i
+                class="fa-sharp fa-solid fa-arrow-left text-black fw-bold fa-2x"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row py-3">
+      <div class="col-12 text-center">
+        <h2 class="my-5">{{"terms" | translate}}</h2>
+        <img [src]="Terms.image" alt="lima"
+          onerror="this.onerror=null;this.src='../../../../assets/images/logo/80fekra.png'">
+      </div>
+      <div class="col-12 my-3 p-4" dir="ltr">
+        <p>{{Terms.title}}</p>
+      </div>
+    </div>
+  </div>
+</div>

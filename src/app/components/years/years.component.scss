@@ -1,0 +1,43 @@
+@import "../../../styles.scss";
+
+.loader {
+  z-index: 5;
+}
+
+#kids-moms {
+  min-height: 100vh;
+  background-color: #F9F9F9 !important;
+  background-image: url("../../../assets/images/subjects/year/XL/yearxl.png");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.parent {
+  .child {
+    background-color: #F9F9F9 !important;
+  }
+}
+
+@media screen and (max-width:576px) {
+  #kids-moms {
+    background-image: url("../../../assets/images/subjects/year/sm/yearsm.png");
+  }
+}
+
+@media screen and (min-width:577px) and (max-width:768px) {
+  #kids-moms {
+    background-image: url("../../../assets/images/subjects/year/M/yearM.png") !important;
+  }
+}
+
+@media screen and (min-width:769px) and (max-width:992px) {
+  #kids-moms {
+    background-image: url("../../../assets/images/subjects/year/M/yearM.png") !important;
+  }
+}
+
+
+
+
+

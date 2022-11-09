@@ -1,0 +1,36 @@
+<!-- loader.json file -->
+<div class="loader">
+  <lottie-player src="../../../assets/animations/loader.json" background="transparent" speed="1" loop autoplay>
+  </lottie-player>
+</div>
+<!-- loader.json file -->
+<div id="more-components">
+  <div class="head-svg">
+  </div>
+  <div class="container m-auto back">
+    <div class="row mb-5">
+      <div class="col-12">
+        <div class="row heading">
+
+          <div class="col-2 d-flex justify-content-center align-items-center">
+            <button routerLink="/years" class="btn btn-transparent border border-0 p-0"><i
+                class="fa-sharp fa-solid fa-arrow-left text-black fw-bold fa-2x"
+                [style.transform]="checkDir?'rotatey(360deg)':'rotatey(180deg)'"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-md-4 col-lg-3 text-center py-2" *ngFor="let subject of subjects">
+        <div class="copmonent p-0  m-0">
+          <a><img [src]="subject.image" class="story-img"
+            (click)="getSubject(subject.id)"></a>
+          <p>{{subject.name}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-navbar></app-navbar>

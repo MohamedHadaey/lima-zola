@@ -1,0 +1,43 @@
+<!-- loader.json file -->
+<div class="loader">
+  <lottie-player src="../../../assets/animations/loader.json" background="transparent" speed="1" loop autoplay>
+  </lottie-player>
+</div>
+<!-- loader.json file -->
+<div id="more-components">
+  <div class="head-svg">
+  </div>
+  <div class="circle1">
+  </div>
+  <div class="circle2">
+  </div>
+  <div class="container m-auto" *ngIf="categoryType == 'article'">
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12 text-start
+          pt-5">
+            <button (click)="goBack()" class="btn btn-transparent border border-0 p-0 m-2"><i
+                class="fa-sharp fa-solid fa-arrow-left text-black fw-bold fa-2x"
+                [style.transform]="checkDir?'rotatey(360deg)':'rotatey(180deg)'"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- if comming from article type -->
+    <div class="row" *ngIf="categoryType == 'article'">
+      <div class="text-center post-image">
+        <img [src]="post.image" alt="article post"
+          onerror="this.onerror=null;this.src='../../../assets/images/characters/lima.jpg'">
+      </div>
+      <div [innerHtml]="postBody" class="p-2">
+      </div>
+    </div>
+  </div>
+  <!-- if comming from video type -->
+  <div *ngIf="categoryType == 'video'"
+    class="d-flex justify-content-center align-items-center w-100 bg-dark vh-100 overflow-hidden">
+    <button type="button" id="closeBtn" class="btn-close p-3  bg-warning fw-bold" (click)="closeVideo()"></button>
+    <div plyr plyrTitle="Video 1" [plyrPlaysInline]="true" [plyrSources]="videoSources" (plyrInit)="player = $event"
+      (plyrPlay)="played($event)" id="plyr"></div>
+  </div>

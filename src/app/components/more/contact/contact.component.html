@@ -1,0 +1,29 @@
+<div class="loader">
+  <lottie-player src="../../../assets/animations/loader.json" background="transparent" speed="1" loop autoplay>
+  </lottie-player>
+</div>
+<div id="more-components">
+  <div class="head-svg">
+  </div>
+  <div class="circle1">
+  </div>
+  <div class="circle2">
+  </div>
+  <button routerLink="/more" class="btn btn-transparent border border-0 p-0" id="back"><i
+      class="fa-sharp fa-solid fa-arrow-left text-black fw-bold fa-2x"></i></button>
+  <div class="container m-auto">
+    <div class="row py-3">
+      <div class="col-12 text-center">
+        <h2 class="my-5">{{"contact us" | translate}}</h2>
+        <img src="../../../../assets/images/characters/limarounded.png" alt="lima"
+          onerror="this.onerror=null;this.src='../../../../assets/images/logo/80fekra.png'" />
+      </div>
+      <div class="col-12 my-3 p-4 text-center">
+        <ul class="list-unstyled d-flex justify-content-center align-items-center flex-wrap icons-list">
+          <li *ngFor="let link of links" class="p-1"><a [href]="link.link" target="_blank"><img [src]="link.image"
+                alt="80 fekra"></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

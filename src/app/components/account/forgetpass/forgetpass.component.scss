@@ -1,0 +1,28 @@
+@import "../../../../styles.scss";
+
+.loader {
+  display: none;
+}
+
+.form {
+  form {
+    .form-group {
+      input {
+        color: #8BDED6;
+      }
+      span {
+        color: #8BDED6;
+      }
+    }
+  }
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
